@@ -12,36 +12,38 @@ const config = {
   rolesVar: "role",
 
   registerData: {
-    url: `${process.env.VUE_APP_API_GATEWAY_URL}/register`, 
+    url: `${process.env.VUE_APP_AWESOME_NODE_API}/users/register`, 
     method: 'POST', 
     redirect: '/profile',
     fetchUser: true
   },
 
   loginData: {
-    url: `${process.env.VUE_APP_API_GATEWAY_URL}/ipartners/login`,
+    url: `${process.env.VUE_APP_AWESOME_NODE_API}/users/login`,
     method: "POST",
     redirect: "/dashboard",
     fetchUser: true
   },
 
   logoutData: {
-    url: `${process.env.VUE_APP_API_GATEWAY_URL}/ipartners/logout`,
+    url: `${process.env.VUE_APP_AWESOME_NODE_API}/users/logout`,
     method: "POST",
     redirect: "/",
     makeRequest: true
   },
+
   fetchData: {
-    url: `${process.env.VUE_APP_API_GATEWAY_URL}/ipartners/me`,
+    url: `${process.env.VUE_APP_AWESOME_NODE_API}/users/me`,
     method: "GET",
     enabled: true
   },
-  // refreshData: {
-  //   url: `${process.env.VUE_APP_API_GATEWAY_URL}/ipartners/refresh`,
-  //   method: "GET",
-  //   enabled: true,
-  //   interval: 30
-  // },
+
+  refreshData: {
+    url: `${process.env.VUE_APP_AWESOME_NODE_API}/users/refresh`,
+    method: "GET",
+    enabled: true,
+    interval: 30
+  },
   authRedirect: { path: "/login" },
   forbiddenRedirect: { path: "/pages/500" }, 
 

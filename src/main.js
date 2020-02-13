@@ -2,14 +2,14 @@ import Vue from 'vue'
 import App from './App.vue'
 import { BootstrapVue, IconsPlugin } from 'bootstrap-vue'
 import * as VeeValidate from 'vee-validate';
-// import VueAuth from '@websanova/vue-auth'
+import VueAuth from '@websanova/vue-auth'
 import axios from 'axios'
 import VueAxios from 'vue-axios'
 import VueToastr from '@deveodk/vue-toastr'
 import VuejsDialog from 'vuejs-dialog';
 
 import router from './router'
-// import auth from './guard/auth'
+import auth from './guard/auth'
 
 import 'bootstrap/dist/css/bootstrap.css'
 import 'bootstrap-vue/dist/bootstrap-vue.css'
@@ -29,7 +29,7 @@ Vue.use(BootstrapVue);
 Vue.use(IconsPlugin);
 Vue.use(VueAxios, axios)
 Vue.use(VeeValidate, {fieldsBagName: 'formFields'});
-// Vue.use(VueAuth, auth);
+Vue.use(VueAuth, auth);
 
 Vue.use(VueToastr, {
   defaultPosition: 'toast-bottom-right',
