@@ -1,30 +1,17 @@
 <template>
   <div class="sidebar">
     <ul>
-      <li class="mt-3"><router-link to="/dashboard"><img src="@/assets/images/kothao-mono.png"></router-link></li>
-      <li>
-        <router-link to="/dashboard">
-          <span :class="{'active': currentPage == '/dashboard' }"><i class="fas fa-th"></i><p style="word-break: break-all;">DASHBOARD</p></span>
-        </router-link>
-      </li>
-
-      <li>
-        <router-link to="/dashboard/reports">
-          <span :class="{'active': currentPage == '/dashboard/reports' }"><i class="fas fa-chart-line"></i><p style="word-break: break-all;">REPORTS</p></span>
-        </router-link>
-      </li>
-
-      <li>
-        <router-link to="/dashboard/finance">
-          <span :class="{'active': currentPage == '/dashboard/finance' }"><i class="fas fa-money-check-alt"></i><p style="word-break: break-all;">FINANCE</p></span>
-        </router-link>
-      </li>
-
-      <li>
-        <router-link to="/dashboard/finance">
-          <span><i class="fas fa-users"></i><p style="word-break: break-all;">DEVELOPERS</p></span>
-        </router-link>
-      </li>
+      <!-- <li class="mt-3"><router-link to="/dashboard"><img src="@/assets/images/kothao-mono.png"></router-link></li> -->
+      <li><i class="fas fa-tachometer-alt"></i> Dashboard</li>
+      <li><i class="fas fa-tachometer-alt"></i> Documentation</li>
+      <li v-b-toggle.accordion-flights><i class="fas fa-tachometer-alt" ></i> Guide</li>
+      <b-collapse class="sidebar-submenu" id="accordion-flights" accordion="my-accordion">
+        <ul class="ml-4">
+          <li>Partners</li>
+          <li>Booking Reports</li>
+          <li>Accounts & Collections <span class="badge badge-danger">fsdf</span></li>
+        </ul>
+      </b-collapse>
     </ul>
   </div>
 </template>
@@ -41,9 +28,17 @@
 </script>
 
 <style lang="scss">
+  .collapsed > .when-opened,
+  :not(.collapsed) > .when-closed {
+    display: none;
+  }
+
+  :not(.collapsed) > .menu-color {
+    color: #000;
+  }
   .sidebar {
     position: fixed;
-    width: 7%!important;
+    width: 15%!important;
     height: 100%!important;
     background: #1B1D29;
     ul {
@@ -51,47 +46,14 @@
       margin: 0px;
       padding: 0px;
       li {
-        
-        font-size: 12px;
+        word-spacing: 5px;
+        font-size: 14px;
         color: #A8A8A8!important;
-        text-align: center;
-        padding: 20px 10px;
-        // svg {
-        //   width: 2rem;
-        //   height: 2rem;
-        // }
-        a {
-          width: 100%;
-          color: #A8A8A8!important;
-          p {
-            font-size: 10px;
-            color: #A8A8A8!important;
-          }
-          svg {
-            width: 2rem!important;
-            height: 2rem!important;
-            path {
-              fill: #A8A8A8!important;
-            }
-          }
-          
-        }
-        .active {
-          color: #fff;
-          p {
-            color: #fff!important;
-          }
-          svg {
-            path {
-              fill: #fff!important;
-            }
-          }
-        }
-        
-        a:hover {
-          text-decoration: none;
-          color: #fff;
-        }
+        text-align: left;
+        padding: 15px;
+      }
+      li:hover {
+        background-color: #ccc;
       }
     }
   }

@@ -35,10 +35,10 @@ export default {
     position: relative;
     display: flex;
     .app-sidebar {
-      width: 7%;
+      width: 15%;
     }
     .app-body {
-      width: 93%;
+      width: 85%;
     }
   }
 </style>
