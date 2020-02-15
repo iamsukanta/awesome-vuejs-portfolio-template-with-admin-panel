@@ -11,8 +11,24 @@ import ResetPassword from "../views/pages/ResetPassword.vue"
 
 
 import Dashboard from "../Dashboard.vue";
-import Finance from "../views/finance/Finance.vue"
-import Reports from "../views/reports/Reports.vue"
+import Documentation from "../Documentation.vue";
+
+//About
+import About from "../views/about/About.vue";
+import AboutCreate from "../views/about/AboutCreate.vue";
+
+//About
+import Portfolio from "../views/portfolio/Portfolio.vue";
+import PortfolioCreate from "../views/portfolio/PortfolioCreate.vue";
+
+
+//Blogs
+import Blogs from "../views/blogs/Blogs.vue";
+import BlogsCreate from "../views/blogs/BlogsCreate.vue";
+
+//Blogs
+import Resume from "../views/resume/Resume.vue";
+import ResumeCreate from "../views/resume/ResumeCreate.vue";
 
 Vue.use(Router);
 
@@ -75,15 +91,97 @@ export default new Router({
         },
 
         {
-          path: 'finance',
-          name: 'Finance',
-          component: Finance
+          path: 'documentation',
+          name: 'Documentation',
+          component: Documentation
         },
 
         {
-          path: 'reports',
-          name: 'Reports',
-          component: Reports
+          path: 'about',
+          name: 'About',
+          redirect: '/',
+          component: {
+            render (c) { return c('router-view') }
+          },
+          children: [
+            {
+              path: '/',
+              name: 'AboutIndex',
+              component: About
+            },
+
+            {
+              path: 'create',
+              name: 'AboutCreate',
+              component: AboutCreate
+            }
+          ]
+        },
+
+        {
+          path: 'portfolio',
+          name: 'Portfolio',
+          redirect: '/',
+          component: {
+            render (c) { return c('router-view') }
+          },
+          children: [
+            {
+              path: '/',
+              name: 'PortfolioIndex',
+              component: Portfolio
+            },
+
+            {
+              path: 'create',
+              name: 'PortfolioCreate',
+              component: PortfolioCreate
+            }
+          ]
+        },
+
+        {
+          path: 'blogs',
+          name: 'Blogs',
+          redirect: '/',
+          component: {
+            render (c) { return c('router-view') }
+          },
+          children: [
+            {
+              path: '/',
+              name: 'BlogIndex',
+              component: Blogs
+            },
+
+            {
+              path: 'create',
+              name: 'BlogsCreate',
+              component: BlogsCreate
+            }
+          ]
+        },
+
+        {
+          path: 'resume',
+          name: 'Resume',
+          redirect: '/',
+          component: {
+            render (c) { return c('router-view') }
+          },
+          children: [
+            {
+              path: '/',
+              name: 'ResumeIndex',
+              component: Resume
+            },
+
+            {
+              path: 'create',
+              name: 'ResumeCreate',
+              component: ResumeCreate
+            }
+          ]
         },
 
       ]

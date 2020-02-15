@@ -5,36 +5,62 @@
       <li class="text-center first-list-style">
         <img src="@/assets/images/kothao-mono.png" width="50px" height="50px">
       </li>
-      <li><i class="fas fa-tachometer-alt"></i> Dashboard </li>
-      <li><i class="fas fa-book"></i> Documentation</li>
+      <router-link to="/dashboard">
+        <li><i class="fas fa-tachometer-alt"></i> Dashboard </li>
+      </router-link>
+
+      <router-link to="/dashboard/documentation">
+        <li><i class="fas fa-book"></i> Documentation</li>
+      </router-link>
+
       <li v-b-toggle.accordion-about-me><i class="fas fa-user-tie"></i> About Me <span class="when-opened"><i class="fas fa-chevron-up"></i></span> <span class="when-closed"><i class="fas fa-chevron-down"></i></span></li>
       <b-collapse class="sidebar-submenu" id="accordion-about-me" accordion="my-accordion">
         <ul>
-          <li><i class="fas fa-directions"></i> Manage</li>
-          <li><i class="fas fa-plus"></i> Create</li>
+          <router-link to="/dashboard/about">
+            <li><i class="fas fa-directions"></i> Manage</li>
+          </router-link>
+
+          <router-link to="/dashboard/about/create">
+            <li><i class="fas fa-plus"></i> Create</li>
+          </router-link>
         </ul>
       </b-collapse>
       <li v-b-toggle.accordion-portfolio><i class="fas fa-tasks"></i> Portfolio <span class="when-opened"><i class="fas fa-chevron-up"></i></span> <span class="when-closed"><i class="fas fa-chevron-down"></i></span></li>
       <b-collapse class="sidebar-submenu" id="accordion-portfolio" accordion="my-accordion">
         <ul>
-          <li><i class="fas fa-directions"></i> Manage</li>
-          <li><i class="fas fa-plus"></i> Create</li>
+          <router-link to="/dashboard/portfolio">
+            <li><i class="fas fa-directions"></i> Manage</li>
+          </router-link>
+
+          <router-link to="/dashboard/portfolio/create">
+            <li><i class="fas fa-plus"></i> Create</li>
+          </router-link>
         </ul>
       </b-collapse>
 
       <li v-b-toggle.accordion-blog-posts><i class="fas fa-blog"></i> Blog Post <span class="when-opened"><i class="fas fa-chevron-up"></i></span> <span class="when-closed"><i class="fas fa-chevron-down"></i></span></li>
       <b-collapse class="sidebar-submenu" id="accordion-blog-posts" accordion="my-accordion">
         <ul>
-          <li><i class="fas fa-directions"></i> Manage</li>
-          <li><i class="fas fa-plus"></i> Create</li>
+          <router-link to="/dashboard/blogs">
+            <li><i class="fas fa-directions"></i> Manage</li>
+          </router-link>
+
+          <router-link to="/dashboard/blogs/create">
+            <li><i class="fas fa-plus"></i> Create</li>
+          </router-link>
         </ul>
       </b-collapse>
 
       <li v-b-toggle.accordion-resume-link><i class="far fa-file-pdf"></i> Resume Link <span class="when-opened"><i class="fas fa-chevron-up"></i></span> <span class="when-closed"><i class="fas fa-chevron-down"></i></span></li>
       <b-collapse class="sidebar-submenu" id="accordion-resume-link" accordion="my-accordion">
         <ul>
-          <li><i class="fas fa-directions"></i> Manage</li>
-          <li><i class="fas fa-plus"></i> Create</li>
+          <router-link to="/dashboard/resume">
+            <li><i class="fas fa-directions"></i> Manage</li>
+          </router-link>
+
+          <router-link to="/dashboard/resume/create">
+            <li><i class="fas fa-plus"></i> Create</li>
+          </router-link>
         </ul>
       </b-collapse>
     </ul>

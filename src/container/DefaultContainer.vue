@@ -5,7 +5,7 @@
     </div>
     <div class="app-body">
       <AppHeader></AppHeader>
-      <div class="p-5">
+      <div class="mt-3">
         <router-view></router-view>
       </div>
     </div>

@@ -1,6 +1,6 @@
 <template>
-  <div class="app-header w-100  bg-white">
-    <div class="row pl-3 pr-3 p-2">
+  <div class="app-header container-fluid  bg-white">
+    <div class="row pt-2 pb-2  border-bottom" >
       <div class="col app-header-top">
         <ul>
           <li class="pt-4">
@@ -33,9 +33,7 @@
       </div>
     </div>
 
-    <hr class="m-0 p-0"/>
-
-    <div class="row pl-3 pr-3 p-2">
+    <div class="row pt-2 pb-2">
       <div class="col">
         <AppBreadCrumb></AppBreadCrumb>
       </div>
@@ -90,6 +88,7 @@
       li {
         margin-left: 5px;
         display: inline-block;
+        cursor: pointer;
 
         .profileBox {
           width: 50px;
@@ -114,9 +113,9 @@
   }
 
   .showNavbarDropdown {
-    top: 38px;
+    top: 55px;
     right: 14px;
-    width: 220px;
+    width: 170px;
     z-index: 10000!important;
     border-radius: 5px;
     padding: 10px;
