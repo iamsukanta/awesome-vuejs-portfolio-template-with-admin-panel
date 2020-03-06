@@ -45,10 +45,11 @@ export default {
     createPortfolio() {
       this.axios
       .post(
-        `${process.env.VUE_APP_AWESOME_NODE_API}/portfolio/create`,
+        `${process.env.VUE_APP_AWESOME_NODE_API}/portfolios/create`,
         this.portfolio
       )
       .then(res => {
+        this.$toastr('success', "Successfully Created.");
         console.log(res.data);
       })
       .catch(err => {
