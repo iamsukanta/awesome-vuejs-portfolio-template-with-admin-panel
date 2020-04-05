@@ -8,17 +8,13 @@
         <table class="table">
           <thead>
             <tr>
-              <th scope="col">Title</th>
-              <th scope="col">Url</th>
-              <th scope="col">Description</th>
+              <th scope="col">Url Link</th>
               <th scope="col">Action</th>
             </tr>
           </thead>
           <tbody>
             <tr v-for="(portfolio, index) in portfoliosList" :key="index">
-              <th>{{ portfolio.title }}</th>
               <td>{{ portfolio.url }}</td>
-              <td>{{ portfolio.description }}</td>
               <td><button class="btn btn-sm btn-warning"><i class="far fa-edit"></i></button> <button class="btn btn-sm btn-danger"><i class="far fa-trash-alt"></i></button> </td>
             </tr>
           </tbody>

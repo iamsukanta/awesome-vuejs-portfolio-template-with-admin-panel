@@ -5,7 +5,7 @@
         <h3>Portfolios List</h3>
         <hr/>
         <br/>
-        <table class="table">
+        <table class="table table-striped">
           <thead>
             <tr>
               <th scope="col">Title</th>
