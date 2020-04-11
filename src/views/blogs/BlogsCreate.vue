@@ -17,7 +17,7 @@
 
           <div class="form-group">
             <label for="banner-image">Banner Image <span class="text-danger">*</span></label>
-            <input type="file" class="form-control-file" id="banner-image">
+            <input type="file" class="form-control-file" id="banner-image" ref="file" @change="onSelect">
           </div>
 
           <button type="submit" class="btn btn-primary">Submit</button>
@@ -34,18 +34,26 @@ export default {
     return {
       blog: {
         title: "",
-        url: "",
-        description: ""
+        description: "",
+        banner_img: ""
       }
     }
   },
 
   methods: {
+    onSelect() {
+      const file = this.$refs.file.files[0];
+      this.blog.banner_img = file;
+    },
     createBlogPost() {
+      var formData = new FormData();
+      formData.append('title', this.blog.title);
+      formData.append('description', this.blog.description);
+      formData.append('banner_img', this.blog.banner_img);
       this.axios
       .post(
         `${process.env.VUE_APP_AWESOME_NODE_API}/blogs/create`,
-        this.blog
+        formData
       )
       .then(res => {
         this.$toastr('success', "Blog Successfully Created.");

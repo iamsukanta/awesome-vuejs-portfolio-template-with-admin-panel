@@ -9,7 +9,7 @@
           <thead>
             <tr>
               <th scope="col">Title</th>
-              <th scope="col">Url</th>
+              <th scope="col">Banner Image</th>
               <th scope="col">Description</th>
               <th scope="col">Action</th>
             </tr>
@@ -17,7 +17,7 @@
           <tbody>
             <tr v-for="(blog, index) in blogsList" :key="index">
               <th>{{ blog.title }}</th>
-              <td>{{ blog.image }}</td>
+              <td><img :src="envUrl+'uploads/blogImg/'+blog.image" width="50px" height="50px"></td>
               <td>{{ blog.description }}</td>
               <td><button class="btn btn-sm btn-warning"><i class="far fa-edit"></i></button> <button class="btn btn-sm btn-danger"><i class="far fa-trash-alt"></i></button> </td>
             </tr>
@@ -33,7 +33,8 @@ export default {
   name: 'Portfolios',
   data() {
     return {
-      blogsList: []
+      blogsList: [],
+      envUrl: process.env.VUE_APP_AWESOME_NODE_API_BASE_URL
     }
   },
 
