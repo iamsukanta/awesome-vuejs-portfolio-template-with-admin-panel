@@ -2,16 +2,17 @@ import Vue from "vue";
 import Router from "vue-router";
 
 import DefaultContainer from "../container/DefaultContainer.vue";
+import Dashboard from "../Dashboard.vue";
+import Documentation from "../Documentation.vue";
+
+//Pages
+import Home from "../views/pages/Home.vue";
 import Login from "../views/pages/Login.vue";
 import Page404 from "../views/pages/Page404.vue";
 import Page403 from "../views/pages/Page403.vue";
 import Page500 from "../views/pages/Page500.vue";
 import ForgotPassword from "../views/pages/ForgotPassword.vue"
 import ResetPassword from "../views/pages/ResetPassword.vue"
-
-
-import Dashboard from "../Dashboard.vue";
-import Documentation from "../Documentation.vue";
 
 //About
 import About from "../views/about/About.vue";
@@ -38,7 +39,7 @@ export default new Router({
   routes: [
     {
       path: '/',
-      redirect: 'login',
+      redirect: 'home',
       name: 'Default',
       meta: {
         auth: false
@@ -47,6 +48,12 @@ export default new Router({
         render (c) { return c('router-view') }
       },
       children: [
+        {
+          path: 'home',
+          name: 'Home',
+          component: Home
+        },
+
         {
           path: 'login',
           name: 'Login',
