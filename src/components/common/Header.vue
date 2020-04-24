@@ -18,6 +18,7 @@
 
 <style scoped lang="scss">
   .header-section {
+    padding: 25px 0px;
     h1, h5 {
       text-align: center;
     }

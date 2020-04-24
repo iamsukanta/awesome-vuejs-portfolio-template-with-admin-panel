@@ -1,12 +1,12 @@
-* {
-  font-family: 'Muli', sans-serif;
-  font-size: 13px;
-  // color: #333;
-  span {
-    color: #777;
-  }
-}
+// If you want to override variables do it here
+// @import "variables";
 
-// .active > svg > path {
-//  fill: #fff!important; 
-// }
+//Custom Style
+@import "~@/assets/css/fontawesome-all.css";
+
+//vue -wysiwyg style
+// @import "~vue-wysiwyg/dist/vueWysiwyg.css";
+
+
+// If you want to add something do it here
+@import "custom";
