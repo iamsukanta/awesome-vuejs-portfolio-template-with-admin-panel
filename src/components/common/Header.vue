@@ -5,11 +5,19 @@
         <h1>Sukanta Bala</h1>
         <h5>Programmer, Author, Tech Enthusiast</h5>
         <ul>
-          <li>Home</li>
-          <li>Blogs</li>
-          <li>Portfolio</li>
-          <li>Contact</li>
-          <li>Resume</li>
+          <li>
+            <router-link to="/">Home</router-link>
+          </li>
+          <li>
+            <router-link to="/blogs-list">Blogs</router-link>
+          </li>
+          <li>
+            <router-link to="/portfolios">Portfolio</router-link>
+          </li>
+          <li>
+            <router-link to="/contact">Contact</router-link>
+          </li>
+          <li><a href="https://drive.google.com/file/d/1xFYi9ZqQpmtgn7dJzFk5HnjvjdxOtBSl/view?usp=sharing" target="_blank">Resume</a></li>
         </ul>
       </div>
     </div>

@@ -18,16 +18,21 @@ import ResetPassword from "../views/pages/ResetPassword.vue"
 import About from "../views/about/About.vue";
 import AboutCreate from "../views/about/AboutCreate.vue";
 
-//About
+//Contact
+import Contact from "../views/pages/Contact.vue";
+
+//Portfolio
 import Portfolio from "../views/portfolio/Portfolio.vue";
 import PortfolioCreate from "../views/portfolio/PortfolioCreate.vue";
+import PortfolioList from "../views/pages/portfolio/Portfolios.vue";
 
 
 //Blogs
 import Blogs from "../views/blogs/Blogs.vue";
 import BlogsCreate from "../views/blogs/BlogsCreate.vue";
+import BlogList from "../views/pages/blog/Blogs.vue";
 
-//Blogs
+//Resume
 import Resume from "../views/resume/Resume.vue";
 import ResumeCreate from "../views/resume/ResumeCreate.vue";
 
@@ -52,6 +57,24 @@ export default new Router({
           path: 'home',
           name: 'Home',
           component: Home
+        },
+
+        {
+          path: 'contact',
+          name: 'Contact',
+          component: Contact
+        },
+
+        {
+          path: 'portfolios',
+          name: 'PortfolioList',
+          component: PortfolioList
+        },
+
+        {
+          path: 'blogs-list',
+          name: 'BlogList',
+          component: BlogList
         },
 
         {
