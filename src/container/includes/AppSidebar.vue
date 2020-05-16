@@ -38,19 +38,6 @@
         </ul>
       </b-collapse>
 
-      <li v-b-toggle.accordion-blog-posts><i class="fas fa-blog"></i> Blog Post <span class="when-opened"><i class="fas fa-chevron-up"></i></span> <span class="when-closed"><i class="fas fa-chevron-down"></i></span></li>
-      <b-collapse class="sidebar-submenu" id="accordion-blog-posts" accordion="my-accordion">
-        <ul>
-          <router-link to="/dashboard/blogs">
-            <li><i class="fas fa-directions"></i> Manage</li>
-          </router-link>
-
-          <router-link to="/dashboard/blogs/create">
-            <li><i class="fas fa-plus"></i> Create</li>
-          </router-link>
-        </ul>
-      </b-collapse>
-
       <li v-b-toggle.accordion-resume-link><i class="far fa-file-pdf"></i> Resume Link <span class="when-opened"><i class="fas fa-chevron-up"></i></span> <span class="when-closed"><i class="fas fa-chevron-down"></i></span></li>
       <b-collapse class="sidebar-submenu" id="accordion-resume-link" accordion="my-accordion">
         <ul>

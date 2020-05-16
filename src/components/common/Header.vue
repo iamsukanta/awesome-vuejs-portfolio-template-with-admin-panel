@@ -8,16 +8,22 @@
           <li>
             <router-link to="/">Home</router-link>
           </li>
-          <li>
-            <router-link to="/blogs-list">Blogs</router-link>
-          </li>
+
           <li>
             <router-link to="/portfolios">Portfolio</router-link>
           </li>
+
           <li>
             <router-link to="/contact">Contact</router-link>
           </li>
-          <li><a href="https://drive.google.com/file/d/1xFYi9ZqQpmtgn7dJzFk5HnjvjdxOtBSl/view?usp=sharing" target="_blank">Resume</a></li>
+
+          <li>
+            <a href="https://drive.google.com/file/d/1xFYi9ZqQpmtgn7dJzFk5HnjvjdxOtBSl/view?usp=sharing" target="_blank">My Resume</a>
+          </li>
+
+          <li>
+            <a href="https://www.bdtunnel.com" target="_blank">My Blogs</a>
+          </li>
         </ul>
       </div>
     </div>

@@ -3,7 +3,15 @@
     <Header></Header>
     <div class="row portfolio-section mt-3 mb-3">
       <div class="col">
-        <h3>Portfolio Section</h3>
+        <h3>My Portfolio's</h3>
+        <br/>
+        <div class="row mt-3 pl-3">
+          <div class="col col-12 border-left p-2" >
+            <h4>Protfolio Title</h4>
+            <p class="mt-2 mb-0"><b>Development Tools:</b> Tools</p>
+            <p class="mt-0 mb-0"><b>Web Address:</b> Web Address</p>
+          </div>
+        </div>
       </div>
     </div>
     <Footer></Footer>
@@ -25,14 +33,9 @@ export default {
 
 <style scoped lang="scss">
   .portfolio-section {
-    padding: 20px 0px;
     h3 {
       color: #000;
       font-weight: bold;
-    }
-
-    h5 {
-      line-height: 30px;
     }
   }
 </style>

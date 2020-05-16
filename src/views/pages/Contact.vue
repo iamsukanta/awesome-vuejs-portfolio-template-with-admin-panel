@@ -5,9 +5,10 @@
       <div class="col">
         <h3>Contact With Me</h3>
         <br/>
-        <h5><i class="fas fa-envelope-open-text"></i> sukantabalacste28@gmail.com</h5>
-        <h5><i class="fab fa-linkedin-in"></i> http://sukantabala.com</h5>
-        <h5><i class="fas fa-globe-americas"></i> http://sukantabala.com</h5>
+        <h5><i class="fas fa-envelope-open-text"></i>  <span>sukantabalacste28@gmail.com, sukantabalacste2016@gmail.com</span></h5>
+        <h5><i class="fas fa-phone"></i> <span>+880-01738123140</span></h5>
+        <h5><i class="fab fa-linkedin-in"></i> <span><a href="https://www.linkedin.com/in/sukanta-bala-461418117/">https://linkedin.com/sukanta-bala</a></span></h5>
+        <h5><i class="fas fa-globe-americas"></i> <span><a href="https://sukantabala.github.io" >https://sukantabala.github.io</a></span></h5>
       </div>
     </div>
     <Footer></Footer>
@@ -29,7 +30,6 @@ export default {
 
 <style scoped lang="scss">
   .contact-section {
-    padding: 20px 0px;
     h3 {
       color: #000;
       font-weight: bold;
@@ -37,6 +37,11 @@ export default {
 
     h5 {
       line-height: 30px;
+      span {
+        font-size: 14px;
+        color: #555;
+        padding-left: 15px;
+      }
     }
   }
 </style>

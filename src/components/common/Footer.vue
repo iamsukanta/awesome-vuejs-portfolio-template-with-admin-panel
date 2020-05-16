@@ -3,10 +3,11 @@
     <div class="row">
       <div class="col">
         <ul>
-          <li><i class="fab fa-github"></i></li>
-          <li><i class="fab fa-stack-overflow"></i></li>
-          <li><i class="fab fa-linkedin-in"></i></li>
-          <li><i class="fas fa-blog"></i></li>
+          <li><a href="https://github.com/SukantaBala28" target="_blank"> <i class="fab fa-github"></i></a></li>
+          <li><a href="https://stackoverflow.com/users/6295132/sukanta-bala" target="_blank"><i class="fab fa-stack-overflow"></i></a></li>
+          <li><a href="https://www.linkedin.com/in/sukanta-bala-461418117/" target="_blank"><i class="fab fa-linkedin-in"></i></a></li>
+          <li><a href="https://www.facebook.com/sukanta.bala28" target="_blank"><i class="fab fa-facebook-f"></i></a></li>
+          <li><a href="https://www.bdtunnel.com/" target="_blank"><i class="fas fa-blog"></i></a></li>
         </ul>
       </div>
     </div>
@@ -22,9 +23,12 @@
       text-align: center;
       padding: 0px;
       li {
-        font-size: 25px;
         display: inline-block;
-        margin: 0px 10px; 
+        a {
+          font-size: 25px;
+          color: #000;
+          margin: 0px 10px; 
+        }
       }
     }
   }

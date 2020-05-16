@@ -26,12 +26,6 @@ import Portfolio from "../views/portfolio/Portfolio.vue";
 import PortfolioCreate from "../views/portfolio/PortfolioCreate.vue";
 import PortfolioList from "../views/pages/portfolio/Portfolios.vue";
 
-
-//Blogs
-import Blogs from "../views/blogs/Blogs.vue";
-import BlogsCreate from "../views/blogs/BlogsCreate.vue";
-import BlogList from "../views/pages/blog/Blogs.vue";
-
 //Resume
 import Resume from "../views/resume/Resume.vue";
 import ResumeCreate from "../views/resume/ResumeCreate.vue";
@@ -69,12 +63,6 @@ export default new Router({
           path: 'portfolios',
           name: 'PortfolioList',
           component: PortfolioList
-        },
-
-        {
-          path: 'blogs-list',
-          name: 'BlogList',
-          component: BlogList
         },
 
         {
@@ -166,28 +154,6 @@ export default new Router({
               path: 'create',
               name: 'PortfolioCreate',
               component: PortfolioCreate
-            }
-          ]
-        },
-
-        {
-          path: 'blogs',
-          name: 'Blogs',
-          redirect: '/',
-          component: {
-            render (c) { return c('router-view') }
-          },
-          children: [
-            {
-              path: '/',
-              name: 'BlogIndex',
-              component: Blogs
-            },
-
-            {
-              path: 'create',
-              name: 'BlogsCreate',
-              component: BlogsCreate
             }
           ]
         },
