@@ -33,7 +33,7 @@ import ResumeCreate from "../views/resume/ResumeCreate.vue";
 Vue.use(Router);
 
 export default new Router({
-  mode: "hash",
+  mode: "history",
   scrollBehavior: () => ({ y: 0 }),
   routes: [
     {
