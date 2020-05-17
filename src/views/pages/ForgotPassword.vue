@@ -3,7 +3,7 @@
     <b-row class="justify-content-center" align-v="center" style="min-height: 100%; height: 100vh;">
       <b-col class="bg-white p-5" cols="5">
         <div class="text-center">
-          <img src="../../assets/images/logo.png" height="50" alt="Logo"/>
+          <h3>Forgot Password</h3>
         </div>
         <br/>
         <div class="pl-5 pr-5">

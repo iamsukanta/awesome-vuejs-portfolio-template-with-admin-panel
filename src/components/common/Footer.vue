@@ -3,7 +3,7 @@
     <div class="row">
       <div class="col">
         <ul>
-          <li><a href="https://github.com/SukantaBala28" target="_blank"> <i class="fab fa-github"></i></a></li>
+          <li><a href="https://github.com/iamsukanta" target="_blank"> <i class="fab fa-github"></i></a></li>
           <li><a href="https://stackoverflow.com/users/6295132/sukanta-bala" target="_blank"><i class="fab fa-stack-overflow"></i></a></li>
           <li><a href="https://www.linkedin.com/in/sukanta-bala-461418117/" target="_blank"><i class="fab fa-linkedin-in"></i></a></li>
           <li><a href="https://www.facebook.com/sukanta.bala28" target="_blank"><i class="fab fa-facebook-f"></i></a></li>

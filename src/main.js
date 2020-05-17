@@ -7,6 +7,7 @@ import axios from 'axios'
 import VueAxios from 'vue-axios'
 import VueToastr from '@deveodk/vue-toastr'
 import VuejsDialog from 'vuejs-dialog';
+import wysiwyg from "vue-wysiwyg";
 
 import router from './router'
 import auth from './guard/auth'
@@ -30,6 +31,7 @@ Vue.use(IconsPlugin);
 Vue.use(VueAxios, axios)
 Vue.use(VeeValidate, {fieldsBagName: 'formFields'});
 Vue.use(VueAuth, auth);
+Vue.use(wysiwyg, {});
 
 Vue.use(VueToastr, {
   defaultPosition: 'toast-bottom-right',

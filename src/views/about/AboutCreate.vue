@@ -7,7 +7,7 @@
         <form @submit.stop.prevent="createAboutMe">
           <div class="form-group">
             <label for="about-description">Description <span class="text-danger">*</span></label>
-            <textarea class="form-control" id="about-description" v-model="about.description" rows="3"></textarea>
+            <wysiwyg v-model="about.description" id="about-description" name="about-description" placeholder="Enter About Description..."   />
           </div>
 
           <div class="form-group">

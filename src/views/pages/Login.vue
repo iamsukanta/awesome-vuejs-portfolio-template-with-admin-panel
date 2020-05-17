@@ -1,8 +1,9 @@
 <template>
   <div class="container-fluid">
     <b-row class="justify-content-center" align-v="center" style="min-height: 100%; height: 100vh;">
-      <b-col class="bg-white p-5" cols="5">
-        <div class="pl-5 pr-5">
+      <b-col class="bg-custom p-5" cols="5">
+        <div class="pl-5 pr-5 ">
+          <h1 class="text-center font-weight-bold">LOG IN</h1>
           <b-form @submit.prevent="login">
             <div v-if="serverErrors.length">
               <b-alert v-model="showDismissibleAlert" variant="danger" dismissible>
@@ -26,7 +27,6 @@
             <b-row>
               <b-col class="text-center">
                 <b-button type="submit" class="px-4 w-100 customSubmitBtn">LOGIN</b-button>
-                <b-button variant="link" class="px-0 text-color" to="/forgot-password">Forgot Password?</b-button>
               </b-col>
             </b-row>
           </b-form>
@@ -120,5 +120,8 @@ export default {
   .text-color {
     font-weight: bold;
     color: #EF5B2C;
+  }
+  .bg-custom {
+    background-color: #E5E7E8;
   }
 </style>

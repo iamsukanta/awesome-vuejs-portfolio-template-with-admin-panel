@@ -3,7 +3,7 @@
     <div class="row">
       <div class="col">
         <h1>Sukanta Bala</h1>
-        <h5>Programmer, Author, Tech Enthusiast</h5>
+        <h5>Full Stack Developer, Blogger, Tech Enthusiast</h5>
         <ul>
           <li>
             <router-link to="/">Home</router-link>
@@ -18,7 +18,7 @@
           </li>
 
           <li>
-            <a href="https://drive.google.com/file/d/1xFYi9ZqQpmtgn7dJzFk5HnjvjdxOtBSl/view?usp=sharing" target="_blank">My Resume</a>
+            <a :href="resumeLink?resumeLink.url:'https://drive.google.com/file/d/1xFYi9ZqQpmtgn7dJzFk5HnjvjdxOtBSl/view?usp=sharing'" target="_blank">My Resume</a>
           </li>
 
           <li>
@@ -30,10 +30,46 @@
   </div>
 </template>
 
+<script>
+export default {
+  name: "Header",
+  data () {
+    return {
+      resumeLink: {}
+    }
+  },
+
+  methods: {
+    getResumeLink() {
+      this.axios
+      .get(
+        `${process.env.VUE_APP_AWESOME_NODE_API}/resumes/`,
+      )
+      .then(res => {
+        this.resumeLink = res.data.data;
+      })
+      .catch(err => {
+        console.log(err);
+      });
+    }
+  },
+
+  mounted() {
+    this.getResumeLink();
+  } 
+}
+</script>
+
+
+
 <style scoped lang="scss">
   .header-section {
     padding: 25px 0px;
-    h1, h5 {
+    h1 {
+      font-weight: bold;
+      text-align: center;
+    }
+    h5 {
       text-align: center;
     }
     ul {

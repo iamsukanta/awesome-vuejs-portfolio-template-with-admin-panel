@@ -21,6 +21,7 @@
     "vue-axios": "^2.1.5",
     "vue-chartjs": "^3.5.0",
     "vue-router": "^3.1.5",
+    "vue-wysiwyg": "^1.7.2",
     "vuejs-dialog": "^1.4.1"
   },
   "devDependencies": {

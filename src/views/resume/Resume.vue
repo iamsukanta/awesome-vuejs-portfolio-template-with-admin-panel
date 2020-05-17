@@ -13,8 +13,8 @@
             </tr>
           </thead>
           <tbody>
-            <tr v-for="(portfolio, index) in portfoliosList" :key="index">
-              <td>{{ portfolio.url }}</td>
+            <tr>
+              <td>{{ resumeLink.url }}</td>
               <td><button class="btn btn-sm btn-warning"><i class="far fa-edit"></i></button> <button class="btn btn-sm btn-danger"><i class="far fa-trash-alt"></i></button> </td>
             </tr>
           </tbody>
@@ -26,21 +26,21 @@
 
 <script>
 export default {
-  name: 'Portfolios',
+  name: 'ResumesLink',
   data() {
     return {
-      portfoliosList: []
+      resumeLink: {}
     }
   },
 
   methods: {
-    getAllPortfolios() {
+    getResumeLink() {
       this.axios
       .get(
         `${process.env.VUE_APP_AWESOME_NODE_API}/resumes/`,
       )
       .then(res => {
-        this.portfoliosList = res.data.data;
+        this.resumeLink = res.data.data;
         console.log(res.data.data);
       })
       .catch(err => {
@@ -49,7 +49,7 @@ export default {
     }
   },
   mounted() {
-    this.getAllPortfolios()
+    this.getResumeLink()
   }
 }
 </script>

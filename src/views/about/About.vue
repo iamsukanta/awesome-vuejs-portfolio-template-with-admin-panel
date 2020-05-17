@@ -13,11 +13,16 @@
               <th scope="col">Action</th>
             </tr>
           </thead>
-          <tbody>
+          <tbody v-if="aboutMe != null">
             <tr>
               <td>{{ aboutMe.description }}</td>
               <td><img :src="envUrl+'uploads/aboutImg/'+aboutMe.image" width="50px" height="50px"></td>
               <td><button class="btn btn-sm btn-warning"><i class="far fa-edit"></i></button> <button class="btn btn-sm btn-danger"><i class="far fa-trash-alt"></i></button> </td>
+            </tr>
+          </tbody>
+          <tbody v-else>
+            <tr>
+              <td colspan="3">No data added.</td>
             </tr>
           </tbody>
         </table>
@@ -31,7 +36,7 @@ export default {
   name: 'Portfolios',
   data() {
     return {
-      aboutMe: "",
+      aboutMe: {},
       envUrl: process.env.VUE_APP_AWESOME_NODE_API_BASE_URL
     }
   },

@@ -3,24 +3,8 @@
     <Header></Header>
     <div class="row home-section mt-3 mb-3">
       <div class="col">
-        <img src="/img/nature.jpeg" width="250px" height="250px">
-        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with 
-          desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
-
-        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with 
-          desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
-
-        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with 
-          desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
-
-        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with 
-          desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
-
-        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with 
-          desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
-
-        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with 
-          desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
+        <img :src="aboutMe.image?envUrl+ aboutMe.image: '/img/nature.jpeg'" width="250px" height="250px">
+        <div class="description" v-html="aboutMe.description?aboutMe.description: 'No Aboutme Data Found'"></div>
       </div>
     </div>
     <Footer></Footer>
@@ -35,12 +19,38 @@ export default {
   components: {
     Header,
     Footer
+  },
+
+  data () {
+    return {
+      aboutMe: {},
+      envUrl: process.env.VUE_APP_AWESOME_NODE_API_BASE_URL+'uploads/aboutImg/'
+    }
+  },
+
+  methods: {
+    getAboutme() {
+      this.axios
+      .get(
+        `${process.env.VUE_APP_AWESOME_NODE_API}/aboutme/`,
+      )
+      .then(res => {
+        this.aboutMe = res.data.data;
+      })
+      .catch(err => {
+        console.log(err);
+      });
+    }
+  },
+
+  mounted() {
+    this.getAboutme();
   }
   
 }
 </script>
 
-<style scoped lang="scss">
+<style lang="scss">
   .home-section {
     img {
       float: left;
@@ -49,9 +59,17 @@ export default {
       margin-right: 15px;
       margin-bottom: 15px;
     }
+    .description {
+      h6 {
+        font-size: 14px;
+        margin: 30px 0px;
+        text-align: justify;
+        line-height: 20px!important;
+      }
 
-    p {
-      text-align: justify;
+      h6:first-child {
+        margin-top: 0px;
+      }
     }
   }
 </style>
