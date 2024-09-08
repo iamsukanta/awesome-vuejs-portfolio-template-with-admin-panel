@@ -1,5 +1,7 @@
 <template>
   <div class="container container-block">
+    <loading :active.sync="isLoading" 
+        :is-full-page="true"></loading>
     <Header></Header>
     <div class="row home-section mt-3 mb-3">
       <div class="col">
@@ -14,15 +16,19 @@
 <script>
 import Header from './../../components/common/Header.vue'
 import Footer from './../../components/common/Footer.vue'
+import Loading from 'vue-loading-overlay';
+import 'vue-loading-overlay/dist/vue-loading.css';
 export default {
   name: "Home",
   components: {
     Header,
-    Footer
+    Footer,
+    Loading
   },
 
   data () {
     return {
+      isLoading: false,
       aboutMe: {},
       envUrl: process.env.VUE_APP_AWESOME_NODE_API_BASE_URL+'uploads/aboutImg/'
     }
@@ -30,14 +36,17 @@ export default {
 
   methods: {
     getAboutme() {
+      this.isLoading = true;
       this.axios
       .get(
         `${process.env.VUE_APP_AWESOME_NODE_API}/aboutme/`,
       )
       .then(res => {
+        this.isLoading = false;
         this.aboutMe = res.data.data;
       })
       .catch(err => {
+        this.isLoading = false;
         console.log(err);
       });
     }
@@ -51,6 +60,10 @@ export default {
 </script>
 
 <style lang="scss">
+  .container {
+    background: #fff;
+    border-radius: 20px;
+  }
   .home-section {
     img {
       float: left;

@@ -1,6 +1,8 @@
 <template>
   <div class="container container-block">
     <Header></Header>
+    <loading :active.sync="isLoading" 
+        :is-full-page="true"></loading>
     <div class="row portfolio-section mt-3 mb-3">
       <div class="col">
         <h3>My Portfolio's</h3>
@@ -19,31 +21,38 @@
 </template>
 
 <script>
-import Header from './../../../components/common/Header.vue'
-import Footer from './../../../components/common/Footer.vue'
+import Header from './../../../components/common/Header.vue';
+import Footer from './../../../components/common/Footer.vue';
+import Loading from 'vue-loading-overlay';
+import 'vue-loading-overlay/dist/vue-loading.css';
 export default {
   name: "portfoliolist",
   components: {
     Header,
-    Footer
+    Footer,
+    Loading
   },
 
   data () {
     return {
+      isLoading: false,
       portfoliosList: []
     }
   },
 
   methods: {
     getAllPortfolios() {
+      this.isLoading = true;
       this.axios
       .get(
         `${process.env.VUE_APP_AWESOME_NODE_API}/portfolios/`,
       )
       .then(res => {
+        this.isLoading = false;
         this.portfoliosList = res.data.data;
       })
       .catch(err => {
+        this.isLoading = false;
         console.log(err);
       });
     }

@@ -30,7 +30,7 @@ export default {
 <style scoped lang="scss">
   .wrapper {
     background: #F5F7FA;
-    min-height: 650px;
+    min-height: 100vh;
     width: 100%;
     position: relative;
     display: flex;

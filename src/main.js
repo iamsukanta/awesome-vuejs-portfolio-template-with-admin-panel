@@ -8,6 +8,8 @@ import VueAxios from 'vue-axios'
 import VueToastr from '@deveodk/vue-toastr'
 import VuejsDialog from 'vuejs-dialog';
 import wysiwyg from "vue-wysiwyg";
+// import Loading from 'vue-loading-overlay';
+// import 'vue-loading-overlay/dist/vue-loading.css';
 
 import router from './router'
 import auth from './guard/auth'
@@ -32,6 +34,7 @@ Vue.use(VueAxios, axios)
 Vue.use(VeeValidate, {fieldsBagName: 'formFields'});
 Vue.use(VueAuth, auth);
 Vue.use(wysiwyg, {});
+// Vue.use(Loading);
 
 Vue.use(VueToastr, {
   defaultPosition: 'toast-bottom-right',

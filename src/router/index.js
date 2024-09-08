@@ -17,6 +17,11 @@ import ResetPassword from "../views/pages/ResetPassword.vue"
 //About
 import About from "../views/about/About.vue";
 import AboutCreate from "../views/about/AboutCreate.vue";
+import AboutEdit from "../views/about/AboutEdit.vue";
+
+//About
+import Blog from "../views/blog/Blog.vue";
+import BlogCreate from "../views/blog/BlogCreate.vue";
 
 //Contact
 import Contact from "../views/pages/Contact.vue";
@@ -132,6 +137,33 @@ export default new Router({
               path: 'create',
               name: 'AboutCreate',
               component: AboutCreate
+            },
+            {
+              path: 'edit/:id',
+              name: 'AboutEdit',
+              component: AboutEdit
+            }
+          ]
+        },
+
+        {
+          path: 'blog',
+          name: 'Blog',
+          redirect: '/',
+          component: {
+            render (c) { return c('router-view') }
+          },
+          children: [
+            {
+              path: '/',
+              name: 'BlogIndex',
+              component: Blog
+            },
+
+            {
+              path: 'create',
+              name: 'BlogCreate',
+              component: BlogCreate
             }
           ]
         },
