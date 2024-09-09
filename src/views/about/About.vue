@@ -13,11 +13,11 @@
               <th scope="col">Action</th>
             </tr>
           </thead>
-          <tbody v-if="aboutMe != null">
-            <tr>
+          <tbody v-if="aboutMeList.length">
+            <tr v-for="(aboutMe, index) in aboutMeList" :key="index" :class="index== 0?'bg-success':''">
               <td>{{ aboutMe.description }}</td>
               <td><img :src="envUrl+'uploads/aboutImg/'+aboutMe.image" width="50px" height="50px"></td>
-              <td><button class="btn btn-sm btn-warning" @click="editAboutMe(aboutMe._id)"><i class="far fa-edit"></i></button> <button class="btn btn-sm btn-danger"><i class="far fa-trash-alt"></i></button> </td>
+              <td><button class="btn btn-sm btn-warning" @click="editAboutMe(aboutMe._id)"><i class="far fa-edit"></i></button> <button class="btn btn-sm btn-danger" @click="deleteAboutMe(aboutMe._id)"><i class="far fa-trash-alt"></i></button> </td>
             </tr>
           </tbody>
           <tbody v-else>
@@ -36,7 +36,7 @@ export default {
   name: 'Portfolios',
   data() {
     return {
-      aboutMe: {},
+      aboutMeList: [],
       envUrl: process.env.VUE_APP_AWESOME_NODE_API_BASE_URL
     }
   },
@@ -48,7 +48,7 @@ export default {
         `${process.env.VUE_APP_AWESOME_NODE_API}/aboutme/`,
       )
       .then(res => {
-        this.aboutMe = res.data.data;
+        this.aboutMeList = res.data.data;
         console.log(res.data.data);
       })
       .catch(err => {
@@ -56,8 +56,22 @@ export default {
       });
     },
     editAboutMe(id) {
-      console.log(id, 'klkk');
       this.$router.push(`/dashboard/about/edit/${id}`);
+    },
+    deleteAboutMe(id) {
+      if(confirm("Are you sure want to delete this item?") == true) {
+        this.axios
+        .delete(
+          `${process.env.VUE_APP_AWESOME_NODE_API}/aboutme/${id}`
+        )
+        .then(() => {
+          alert("Aboutme Successfully Deleted");
+          this.getAboutme();
+        })
+        .catch(err => {
+          console.log(err);
+        });
+      }
     }
   },
   mounted() {

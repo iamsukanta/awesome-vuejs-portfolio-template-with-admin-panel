@@ -39,7 +39,7 @@ Vue.use(wysiwyg, {});
 Vue.use(VueToastr, {
   defaultPosition: 'toast-bottom-right',
   defaultType: 'success',
-  defaultTimeout: 6000
+  defaultTimeout: 3000
 })
 
 axios.interceptors.response.use(function (response) {

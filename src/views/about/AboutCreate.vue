@@ -40,21 +40,25 @@ export default {
       this.about.image = file;
     },
     createAboutMe() {
-      var formData = new FormData();
-      formData.append('description', this.about.description);
-      formData.append('image', this.about.image);
-      this.axios
-      .post(
-        `${process.env.VUE_APP_AWESOME_NODE_API}/aboutme/create`,
-        formData
-      )
-      .then(res => {
-        this.$toastr('success', "About Successfully Created.");
-        console.log(res.data);
-      })
-      .catch(err => {
-        console.log(err);
-      });
+      if(this.about.image) {
+        let formData = new FormData();
+        formData.append('description', this.about.description);
+        formData.append('image', this.about.image);
+        this.axios
+        .post(
+          `${process.env.VUE_APP_AWESOME_NODE_API}/aboutme/create`,
+          formData
+        )
+        .then(() => {
+          alert("Aboutme Successfully Created.");
+          this.$router.push(`/dashboard/about/`);
+        })
+        .catch(err => {
+          console.log(err);
+        });
+      } else {
+        alert("Please upload aboutme image.")
+      }
     }
   }
 }

@@ -10,7 +10,7 @@
           </li>
 
           <li>
-            <router-link to="/portfolios">Portfolio</router-link>
+            <router-link to="/portfolios">Projects</router-link>
           </li>
 
           <li>
@@ -18,11 +18,7 @@
           </li>
 
           <li>
-            <a :href="resumeLink?resumeLink.url:'https://drive.google.com/file/d/1xFYi9ZqQpmtgn7dJzFk5HnjvjdxOtBSl/view?usp=sharing'" target="_blank">My Resume</a>
-          </li>
-
-          <li>
-            <a href="https://www.bdtunnel.com" target="_blank">My Blogs</a>
+            <a :href="resumeLink?resumeLink.url:'https://drive.google.com/file/d/1g3_Magj5ihwZQz0Yi0Q4WBPCr3qAa2Dp/view'" target="_blank">My Resume</a>
           </li>
         </ul>
       </div>

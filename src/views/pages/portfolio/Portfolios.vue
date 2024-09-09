@@ -5,7 +5,7 @@
         :is-full-page="true"></loading>
     <div class="row portfolio-section mt-3 mb-3">
       <div class="col">
-        <h3>My Portfolio's</h3>
+        <h3>My Project's</h3>
         <br/>
         <div class="row mt-3 pl-3">
           <div class="col col-12 border-left border-secondary p-2 mt-4 mb-4" v-for="portfolio in portfoliosList" :key="portfolio._id" >
@@ -13,6 +13,8 @@
             <p class="mt-2 mb-0"><b class="mr-2">Development Tools:</b> {{ portfolio.description }}</p>
             <p class="mt-0 mb-0"><b class="mr-2">Web Address:</b> <a :href="portfolio.url" target="_blank"> {{ portfolio.url }}</a></p>
           </div>
+
+          <p class="mt-3"><b>and many more.</b></p>
         </div>
       </div>
     </div>

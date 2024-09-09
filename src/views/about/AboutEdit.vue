@@ -4,7 +4,7 @@
       <div class="col col-md-6">
         <h3>Edit Aboutme Section</h3>
         <hr/>
-        <form @submit.stop.prevent="createAboutMe">
+        <form @submit.stop.prevent="editAboutMe">
           <div class="form-group">
             <label for="about-description">Description <span class="text-danger">*</span></label>
             <wysiwyg v-model="about.description" id="about-description" name="about-description" placeholder="Enter About Description..."   />
@@ -52,22 +52,26 @@ export default {
       const file = this.$refs.file.files[0];
       this.about.image = file;
     },
-    createAboutMe() {
-      var formData = new FormData();
-      formData.append('description', this.about.description);
-      formData.append('image', this.about.image);
-      this.axios
-      .post(
-        `${process.env.VUE_APP_AWESOME_NODE_API}/aboutme/edit/${this.$route.params.id}`,
-        formData
-      )
-      .then(res => {
-        this.$toastr('success', "Aboutme Successfully Updated.");
-        console.log(res.data);
-      })
-      .catch(err => {
-        console.log(err);
-      });
+    editAboutMe() {
+      if(this.about.image) {
+        let formData = new FormData();
+        formData.append('description', this.about.description);
+        formData.append('image', this.about.image);
+        this.axios
+        .post(
+          `${process.env.VUE_APP_AWESOME_NODE_API}/aboutme/edit/${this.$route.params.id}`,
+          formData
+        )
+        .then(res => {
+          this.$toastr('success', "Aboutme Successfully Updated.");
+          console.log(res.data);
+        })
+        .catch(err => {
+          console.log(err);
+        });
+      } else {
+        alert("Please upload aboutme image.");
+      }
     }
   }
 }
