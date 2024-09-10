@@ -13,9 +13,9 @@
             </tr>
           </thead>
           <tbody>
-            <tr>
+            <tr v-for="(resumeLink, index) in resumeLinks" :key="index" :class="index== 0?'bg-success':''">
               <td>{{ resumeLink.url }}</td>
-              <td><button class="btn btn-sm btn-warning"><i class="far fa-edit"></i></button> <button class="btn btn-sm btn-danger"><i class="far fa-trash-alt"></i></button> </td>
+              <td><button class="btn btn-sm btn-warning" @click="editResumeLink(resumeLink._id)"><i class="far fa-edit"></i></button> <button class="btn btn-sm btn-danger" @click="deleteResumeLink(resumeLink._id)"><i class="far fa-trash-alt"></i></button> </td>
             </tr>
           </tbody>
         </table>
@@ -29,27 +29,45 @@ export default {
   name: 'ResumesLink',
   data() {
     return {
-      resumeLink: {}
+      resumeLinks: []
     }
   },
 
   methods: {
-    getResumeLink() {
+    getResumeLinks() {
       this.axios
       .get(
         `${process.env.VUE_APP_AWESOME_NODE_API}/resumes/`,
       )
       .then(res => {
-        this.resumeLink = res.data.data;
-        console.log(res.data.data);
+        this.resumeLinks = res.data.data;
       })
       .catch(err => {
         console.log(err);
       });
+    },
+
+    editResumeLink(id) {
+      this.$router.push(`/dashboard/resume/edit/${id}`);
+    },
+    deleteResumeLink(id) {
+      if(confirm("Are you sure want to delete this item?") == true) {
+        this.axios
+        .delete(
+          `${process.env.VUE_APP_AWESOME_NODE_API}/resumes/${id}`
+        )
+        .then(() => {
+          alert("Resumes Successfully Deleted");
+          this.getResumeLinks();
+        })
+        .catch(err => {
+          console.log(err);
+        });
+      }
     }
   },
   mounted() {
-    this.getResumeLink()
+    this.getResumeLinks()
   }
 }
 </script>

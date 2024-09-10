@@ -30,10 +30,12 @@ import Contact from "../views/pages/Contact.vue";
 import Portfolio from "../views/portfolio/Portfolio.vue";
 import PortfolioCreate from "../views/portfolio/PortfolioCreate.vue";
 import PortfolioList from "../views/pages/portfolio/Portfolios.vue";
+import PortfolioEdit from "../views/portfolio/PortfolioEdit.vue";
 
 //Resume
 import Resume from "../views/resume/Resume.vue";
 import ResumeCreate from "../views/resume/ResumeCreate.vue";
+import ResumeEdit from "../views/resume/ResumeEdit.vue";
 
 Vue.use(Router);
 
@@ -186,6 +188,12 @@ export default new Router({
               path: 'create',
               name: 'PortfolioCreate',
               component: PortfolioCreate
+            },
+
+            {
+              path: 'edit/:id',
+              name: 'PortfolioEdit',
+              component: PortfolioEdit
             }
           ]
         },
@@ -208,6 +216,12 @@ export default new Router({
               path: 'create',
               name: 'ResumeCreate',
               component: ResumeCreate
+            },
+
+            {
+              path: 'edit/:id',
+              name: 'ResumeEdit',
+              component: ResumeEdit
             }
           ]
         },

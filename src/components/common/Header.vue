@@ -39,7 +39,7 @@ export default {
     getResumeLink() {
       this.axios
       .get(
-        `${process.env.VUE_APP_AWESOME_NODE_API}/resumes/`,
+        `${process.env.VUE_APP_AWESOME_NODE_API}/resumes/latest`,
       )
       .then(res => {
         this.resumeLink = res.data.data;

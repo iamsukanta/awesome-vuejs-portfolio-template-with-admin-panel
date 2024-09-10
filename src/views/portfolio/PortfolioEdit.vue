@@ -2,9 +2,9 @@
   <div class="container-fluid">
     <div class="row">
       <div class="col col-md-6">
-        <h3>Create Portfolio</h3>
+        <h3>Edit Portfolio</h3>
         <hr/>
-        <form @submit.stop.prevent="createPortfolio">
+        <form @submit.stop.prevent="editPortfolio">
           <div class="form-group">
             <label for="title">Title <span class="text-danger">*</span></label>
             <input type="text" class="form-control" id="title" v-model="portfolio.title" placeholder="Enter Title" required>
@@ -35,7 +35,7 @@
 
 <script>
 export default {
-  name: 'PortfoliosCreate',
+  name: 'PortfoliosEdit',
   data() {
     return {
       portfolio: {
@@ -47,15 +47,28 @@ export default {
     }
   },
 
+  mounted() {
+    this.axios
+    .get(
+      `${process.env.VUE_APP_AWESOME_NODE_API}/portfolios/${this.$route.params.id}`,
+    )
+    .then(res => {
+      this.portfolio = res.data.data;
+    })
+    .catch(err => {
+      console.log(err);
+    });
+  },
+
   methods: {
-    createPortfolio() {
+    editPortfolio() {
       this.axios
       .post(
-        `${process.env.VUE_APP_AWESOME_NODE_API}/portfolios/create`,
+        `${process.env.VUE_APP_AWESOME_NODE_API}/portfolios/edit/${this.$route.params.id}`,
         this.portfolio
       )
       .then(() => {
-        alert("Portfolio Successfully Created.");
+        alert("Portfolio Successfully Edited.");
         this.$router.push(`/dashboard/portfolio/`);
       })
       .catch(err => {

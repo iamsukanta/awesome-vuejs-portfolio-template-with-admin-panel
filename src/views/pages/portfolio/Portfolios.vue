@@ -5,16 +5,16 @@
         :is-full-page="true"></loading>
     <div class="row portfolio-section mt-3 mb-3">
       <div class="col">
-        <h3>My Project's</h3>
-        <br/>
+        <h3>My Project's 🤟</h3>
         <div class="row mt-3 pl-3">
-          <div class="col col-12 border-left border-secondary p-2 mt-4 mb-4" v-for="portfolio in portfoliosList" :key="portfolio._id" >
+          <div class="col col-12 pl-0 mt-4 mb-4" v-for="portfolio in portfoliosList" :key="portfolio._id" >
             <h4>{{ portfolio.title }}</h4>
-            <p class="mt-2 mb-0"><b class="mr-2">Development Tools:</b> {{ portfolio.description }}</p>
+            <p class="mt-2 mb-0"><b class="mr-2">Description:</b> <span class="description-text" v-html="portfolio.description"></span></p>
+            <p class="mt-0 mb-0"><b class="mr-2">Development Tools:</b> {{ portfolio.development_technology }}</p>
             <p class="mt-0 mb-0"><b class="mr-2">Web Address:</b> <a :href="portfolio.url" target="_blank"> {{ portfolio.url }}</a></p>
           </div>
 
-          <p class="mt-3"><b>and many more.</b></p>
+          <p class="mt-2"><b>and many more.</b></p>
         </div>
       </div>
     </div>
@@ -67,11 +67,23 @@ export default {
 }
 </script>
 
-<style scoped lang="scss">
+<style lang="scss">
   .portfolio-section {
     h3 {
       color: #000;
       font-weight: bold;
+    }
+
+    .description-text {
+      ul {
+        li {
+          text-align: justify !important;
+        }
+      }
+    }
+
+    .border-property {
+      border-left: 1px solid #AAAAAA;
     }
   }
 </style>

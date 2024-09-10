@@ -39,7 +39,7 @@ export default {
       this.isLoading = true;
       this.axios
       .get(
-        `${process.env.VUE_APP_AWESOME_NODE_API}/aboutme/`,
+        `${process.env.VUE_APP_AWESOME_NODE_API}/aboutme/latest`,
       )
       .then(res => {
         this.isLoading = false;

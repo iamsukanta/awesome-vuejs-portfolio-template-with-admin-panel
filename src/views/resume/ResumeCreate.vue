@@ -34,9 +34,9 @@ export default {
         `${process.env.VUE_APP_AWESOME_NODE_API}/resumes/create`,
         this.resume
       )
-      .then(res => {
-        this.$toastr('success', "Successfully Created.");
-        console.log(res.data);
+      .then(() => {
+        alert("Resume Successfully created.");
+        this.$router.push(`/dashboard/resume/`);
       })
       .catch(err => {
         console.log(err);

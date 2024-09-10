@@ -19,7 +19,7 @@
               <th>{{ portfolio.title }}</th>
               <td>{{ portfolio.url }}</td>
               <td>{{ portfolio.description }}</td>
-              <td><button class="btn btn-sm btn-warning"><i class="far fa-edit"></i></button> <button class="btn btn-sm btn-danger"><i class="far fa-trash-alt"></i></button> </td>
+              <td><button  @click="portfolioEdit(portfolio._id)" class="btn btn-sm btn-warning"><i class="far fa-edit"></i></button> <button class="btn btn-sm btn-danger" @click="portfolioDelete(portfolio._id)"><i class="far fa-trash-alt"></i></button> </td>
             </tr>
           </tbody>
         </table>
@@ -45,11 +45,31 @@ export default {
       )
       .then(res => {
         this.portfoliosList = res.data.data;
-        console.log(res.data.data);
       })
       .catch(err => {
         console.log(err);
       });
+    },
+
+    portfolioEdit(id) {
+      console.log(id, 'll');
+      this.$router.push(`/dashboard/portfolio/edit/${id}`);
+    },
+
+    portfolioDelete(id) {
+      if(confirm("Are you sure want to delete this item?") == true) {
+        this.axios
+        .delete(
+          `${process.env.VUE_APP_AWESOME_NODE_API}/portfolios/${id}`
+        )
+        .then(() => {
+          alert("Portfolio Successfully Deleted");
+          this.getAllPortfolios();
+        })
+        .catch(err => {
+          console.log(err);
+        });
+      }
     }
   },
   mounted() {

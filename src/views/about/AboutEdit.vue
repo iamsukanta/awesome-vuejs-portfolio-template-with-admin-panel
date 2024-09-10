@@ -7,12 +7,12 @@
         <form @submit.stop.prevent="editAboutMe">
           <div class="form-group">
             <label for="about-description">Description <span class="text-danger">*</span></label>
-            <wysiwyg v-model="about.description" id="about-description" name="about-description" placeholder="Enter About Description..."   />
+            <wysiwyg v-model="about.description" id="about-description" name="about-description" placeholder="Enter About Description..." required  />
           </div>
 
           <div class="form-group">
             <label for="about-image">About Image <span class="text-danger">*</span></label>
-            <input type="file" class="form-control-file" id="about-image" ref="file" @change="onSelect">
+            <input type="file" class="form-control-file" id="about-image" ref="file" @change="onSelect" required>
           </div>
 
           <button type="submit" class="btn btn-primary">Submit</button>
@@ -24,7 +24,7 @@
 
 <script>
 export default {
-  name: 'AboutCreate',
+  name: 'AboutEdit',
   data() {
     return {
       about: {
