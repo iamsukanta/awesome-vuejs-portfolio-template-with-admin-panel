@@ -5,8 +5,8 @@
     <Header></Header>
     <div class="row home-section mt-3 mb-3">
       <div class="col">
-        <img :src="aboutMe.image?envUrl+ aboutMe.image: '/img/nature.jpeg'" width="250px" height="250px">
-        <div class="description" v-html="aboutMe.description?aboutMe.description: 'No Aboutme Data Found'"></div>
+        <img :src="aboutMe?.image?envUrl+ aboutMe?.image: '/img/nature.jpeg'" width="250px" height="250px">
+        <div class="description" v-html="aboutMe?.description?aboutMe?.description: 'No Aboutme Data Found'"></div>
       </div>
     </div>
     <Footer></Footer>
